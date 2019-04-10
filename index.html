@@ -24,10 +24,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="images/projectcsv-16.png"/>
         
-        <!-- css & js -->
+        <!-- css -->
         <link rel="stylesheet" type="text/css" href="css/index.css">
         
         <!-- Bootstrap & jQuery -->
+        <script src="https://code.jquery.com/jquery-3.4.0.slim.min.js"
+        integrity="sha256-ZaXnYkHGqIhqTbJ6MB4l9Frs/r7U4jlx7ir8PJYBqbI="
+        crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+        
         <link rel="stylesheet"
               href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
               integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
@@ -36,12 +43,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
         
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
+        <!-- Material Icons -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+        <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     </head>
     
     <body>
@@ -61,12 +66,35 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <div class="container">
             <div class="row">
                 <div class="col-md-8 text-center controls">
-                    <p class="basic-cs"><b>Basic CSV Settings</b></p>
+                    <p class="basic-cs">
+                        <button class="styleless" id="basic-controls-toggle">
+                        <b>Basic CSV Settings</b>
+                        <i class="material-icons" id="basic-controls-display">arrow_drop_down</i>
+                        </button>
+                    </p>
+                    
+                    <!--                    Basic Controls                  -->
+                    <div id="basic-controls">
+                        
+                    </div>
                 </div>
                 <div class="col-md-3 text-center controls">
-                    <p class="advanced-cs"><b>Advanced CSV Settings</b></p>
+                    <p class="advanced-cs">
+                        <button class="styleless" id="advanced-controls-toggle">
+                        <b>Advanced CSV Settings</b>
+                        <i class="material-icons" id="advanced-controls-display">arrow_drop_down</i>
+                        </button>
+                    </p>
+                    
+                    <!--                  Advanced Controls                 -->
+                    <div id="advanced-controls">
+                        
+                    </div>
                 </div>
             </div>
         </div>
+        
+        <!--                           index.js                             -->
+        <script src="js/index.js"></script>
     </body>
 </html>

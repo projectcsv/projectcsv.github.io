@@ -62,3 +62,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
    padding-top: 5px;
    padding-bottom: 5px;
 }
+
+/* Misc */
+
+.material-icons {
+    vertical-align: middle !important;
+}
+
+.styleless {
+    background-color: transparent;
+    border: 0px;
+}
