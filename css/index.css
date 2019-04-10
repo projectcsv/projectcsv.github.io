@@ -14,3 +14,51 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+
+/* Header CSS */
+
+.nav-item {
+    color: black;
+    border-bottom: 3px solid darkorange;
+    margin-left: 5px;
+}
+
+.active {
+    border-bottom: 3px solid blueviolet;
+}
+
+.nav-item:hover {
+    border-bottom: 3px solid gray;
+}
+
+.active:hover {
+    border-bottom: 3px solid blueviolet;
+}
+
+/* CSV Import Controls */
+
+.controls{
+    margin: 10px;
+    border: 1px solid lightgray;
+    border-radius: 8px;
+}
+
+.basic-cs {
+   background-color: lightsteelblue;
+   border-top-right-radius: 8px;
+   border-top-left-radius: 8px;
+   margin-left: -16px;
+   margin-right: -16px;
+   padding-top: 5px;
+   padding-bottom: 5px;
+}
+
+.advanced-cs {
+   background-color: lightgrey;
+   border-top-right-radius: 8px;
+   border-top-left-radius: 8px;
+   margin-left: -16px;
+   margin-right: -16px;
+   padding-top: 5px;
+   padding-bottom: 5px;
+}
