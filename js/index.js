@@ -88,6 +88,51 @@ function toggleAdvanced(){
     }
 }
 
+/**
+ * 
+ * @returns {Boolean} true if the browser window
+ * is smaller than bootsraps col-sm trigger size.
+ */
 function isSM(){
     return $(window).width() < SM_SCREEN_SIZE;
 }
+
+/* Form input */
+
+/**
+ * @returns {getUserInput.userInput} an object
+ * containing all the user input at the time 
+ * of the method call.
+ */
+function getUserInput() {
+  var userInput = {};
+  
+  userInput.maxRows = getFMaxRows();
+  userInput.encoding = getFEncoding();
+  userInput.columnSeparator = getFColumnSeparator();
+  userInput.useQuotes = isFUseQuotes();
+  
+  return userInput;
+}
+
+function getFMaxRows(){
+    return $("#max-rows").val() === "" ? "0" : $("#max-rows").val();
+}
+
+function getFEncoding(){
+    return $("#encoding").val();
+}
+
+function getFColumnSeparator(){
+    return $("#column-separator").val();
+}
+
+function isFUseQuotes(){
+    return $("#quotes").val();
+}
+
+$("#go").click(function (){
+    userInput = getUserInput();
+    
+    alert(userInput.maxRows + "\n" + userInput.encoding + "\n" + userInput.columnSeparator + "\n" + userInput.useQuotes);
+});
