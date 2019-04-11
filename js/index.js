@@ -15,11 +15,15 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+/* Semi constant values */
+SM_SCREEN_SIZE = 768;
+
 /**
  * Basic controls toggle button callback.
  */
 $("#basic-controls-toggle").click(function() {
-  toggleBasic();
+    if(isSM())
+        toggleBasic();
 });
 
 /**
@@ -53,7 +57,8 @@ function toggleBasic(){
  * Advanced controls toggle button callback.
  */
 $("#advanced-controls-toggle").click(function() {
-  toggleAdvanced();
+    if(isSM())
+        toggleAdvanced();
 });
 
 /**
@@ -81,4 +86,8 @@ function toggleAdvanced(){
     } else {
         showAdvanced();
     }
+}
+
+function isSM(){
+    return $(window).width() < SM_SCREEN_SIZE;
 }

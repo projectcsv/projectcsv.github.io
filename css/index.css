@@ -44,7 +44,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 }
 
 .basic-cs {
-   background-color: lightsteelblue;
+   background-color: lightgreen;
    border-top-right-radius: 8px;
    border-top-left-radius: 8px;
    margin-left: -16px;
@@ -54,7 +54,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 }
 
 .advanced-cs {
-   background-color: lightgrey;
+   background-color: lightblue;
    border-top-right-radius: 8px;
    border-top-left-radius: 8px;
    margin-left: -16px;

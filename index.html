@@ -75,7 +75,22 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                     
                     <!--                    Basic Controls                  -->
                     <div id="basic-controls">
-                        
+                        <form>
+                            <div class="form-group">
+                                <label for="upload">Select .csv files:</label>
+                                <input class="btn btn-default" id="upload" type=file accept=".csv" name="files[]" size=30 multiple="multiple">
+                            </div>
+                            <div class="form-group">
+                                <label for="first-row-header">Make first row column headers:</label>
+                                <input id="first-row-header" type="checkbox" name="fr-headers"><br>
+                            </div>
+                            <div class="form-group">
+                                <label for="first-row-include">Include first row along with colum headers:</label>
+                                <input id="first-row-include" type="checkbox" name="fr-include"><br>
+                            </div>
+                        </form>
+                        <button id="go" class="btn btn-primary">Go!</button>
+                        <br/><br/>
                     </div>
                 </div>
                 <div class="col-md-3 text-center controls">
@@ -88,7 +103,29 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                     
                     <!--                  Advanced Controls                 -->
                     <div id="advanced-controls">
-                        
+                        <form>
+                            <div class="form-group">
+                                <label for="encoding">Encoding:</label>
+                                <select id="encoding" name="encoding">
+                                    <option value="utf-8">UTF-8</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="column-separator">Column separator</label>
+                                <select id="column-separator" name="column-separator">
+                                    <option value="comma">Comma (,)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="max-rows">Max rows:</label>
+                                <input id="max-rows" type="number" name="max-rows" min="1">
+                            </div>
+                            <div class="form-group">
+                                <label for="quotes">Treat quoted text as a single cell:</label>
+                                <input id="quotes" type="checkbox" name="quotes"><br>
+                            </div>
+                            <br/><br/>
+                        </form>
                     </div>
                 </div>
             </div>
