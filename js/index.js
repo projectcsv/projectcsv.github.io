@@ -105,34 +105,47 @@ function isSM(){
  * of the method call.
  */
 function getUserInput() {
-  var userInput = {};
+    var userInput = {};
+    
+    userInput.maxRows = getMaxRows();
+    userInput.encoding = getEncoding();
+    userInput.columnSeparator = getColumnSeparator();
+    userInput.useQuotes = useQuotes();
+    userInput.firstRowHeaders = firstRowHeaders();
+    userInput.firstRowInlcude = firstRowInclude();
+    userInput.files = getFiles();
   
-  userInput.maxRows = getFMaxRows();
-  userInput.encoding = getFEncoding();
-  userInput.columnSeparator = getFColumnSeparator();
-  userInput.useQuotes = isFUseQuotes();
-  
-  return userInput;
-}
+    function getMaxRows(){
+        return $("#max-rows").val() === "" ? "0" : $("#max-rows").val();
+    }
 
-function getFMaxRows(){
-    return $("#max-rows").val() === "" ? "0" : $("#max-rows").val();
-}
+    function getEncoding(){
+        return $("#encoding").val();
+    }
 
-function getFEncoding(){
-    return $("#encoding").val();
-}
+    function getColumnSeparator(){
+        return $("#column-separator").val();
+    }
 
-function getFColumnSeparator(){
-    return $("#column-separator").val();
-}
-
-function isFUseQuotes(){
-    return $("#quotes").val();
+    function useQuotes(){
+        return $("#quotes").is(":checked");
+    }
+    
+    function firstRowHeaders(){
+        return $("#first-row-header").is(":checked");
+    }
+    
+    function firstRowInclude(){
+        return $("#first-row-include").is(":checked");
+    }
+    
+    function getFiles(){
+        return $("#upload").prop('files');
+    }
+    
+    return userInput;
 }
 
 $("#go").click(function (){
-    userInput = getUserInput();
     
-    alert(userInput.maxRows + "\n" + userInput.encoding + "\n" + userInput.columnSeparator + "\n" + userInput.useQuotes);
 });
