@@ -107,18 +107,27 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                             <div class="form-group">
                                 <label for="encoding">Encoding:</label>
                                 <select id="encoding" name="encoding">
-                                    <option value="utf-8">UTF-8</option>
+                                    <option value="UTF-8">UTF-8</option>
+                                    <option value="UTF-16">UTF-16</option>
+                                    <option value="ISO-8859-1">ISO-8859-1</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="column-separator">Column separator</label>
                                 <select id="column-separator" name="column-separator">
-                                    <option value="comma">Comma (,)</option>
+                                    <option value=",">Comma (,)</option>
+                                    <option value=";">Semi-colon (;)</option>
+                                    <option value=":">Colon (:)</option>
+                                    <option value="|">Bar (|)</option>
+                                    <option value="^">Caret (^)</option>
+                                    <option value=" ">Space ( )</option>
+                                    <option value=".">Period (.)</option>
+                                    <option value="-">Dash (-)</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="max-rows">Max rows:</label>
-                                <input id="max-rows" type="number" name="max-rows" min="1">
+                                <input id="max-rows" type="number" name="max-rows" min="0" value="0">
                             </div>
                             <div class="form-group">
                                 <label for="quotes">Treat quoted text as a single cell:</label>
@@ -127,6 +136,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                             <br/><br/>
                         </form>
                     </div>
+                </div>
+            </div>
+            <!--                                Tables                      -->
+            <div class="tables text-center" id="tables">
+                <div style="margin-top: 100px; margin-bottom: 100px; font-size: 30px;">
+                    No Tables
                 </div>
             </div>
         </div>

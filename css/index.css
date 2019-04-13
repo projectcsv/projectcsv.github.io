@@ -73,3 +73,50 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     background-color: transparent;
     border: 0px;
 }
+
+/* Tables */
+
+.table-title {
+    background-color: sandybrown;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 0px;
+}
+
+.table-holder {
+    margin-top: 20px;
+    border: 1px solid lightgray;
+    border-radius: 8px;
+    border-bottom: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.tables {
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-bottom: 0px;
+}
+
+table, th, td {
+    border: 1px solid lightgrey;
+    border-collapse: collapse;
+}
+
+table tr:nth-child(even) {
+    background-color: white;
+}
+
+table tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+table th {
+    background-color: #e1e1e1;
+    color: black;
+}

@@ -16,7 +16,20 @@
  */
 
 /* Semi constant values */
-SM_SCREEN_SIZE = 768;
+var SM_SCREEN_SIZE = 768;
+
+var TABLE_COLORS = [
+    "#0095f9",
+    "#9df900",
+    "#00f9ec",
+    "#f9f400",
+    "#f99900",
+    "#f90091",
+    "#31f7a8",
+    "#fcf805",
+    "#14ffeb",
+    "#ff2323"
+];
 
 /**
  * Basic controls toggle button callback.
@@ -146,6 +159,119 @@ function getUserInput() {
     return userInput;
 }
 
-$("#go").click(function (){
+/* Tables */
+
+/**
+ * Randomly selects the background color of each table title
+ * (.table-title) from a predefined list of colors.
+ * 
+ * @returns {undefined}
+ */
+function colorTables(){
+    $(".table-title").each(function() {
+        $(this).css("background-color", randomColor());
+    });
     
+    function randomColor(){
+        return TABLE_COLORS[Math.floor(Math.random() * TABLE_COLORS.length)];
+    }
+}
+
+/* Table Generation */
+
+/**
+ * Creates a table holder with the 
+ * given table in it.
+ * 
+ * @param {type} title
+ * @param {type} tableHtml
+ * @returns {String|getTableUnit.tableHolder}
+ */
+function getTableUnit(title, tableHtml){
+    var tableHolder = "<div class=\"table-holder\"><p class=\"table-title\"><b>{@name}</b></p>{@table}</div>";
+    tableHolder = tableHolder.replace("{@name}", title);
+    tableHolder = tableHolder.replace("{@table}", tableHtml);
+    return tableHolder;
+}
+
+/**
+ * Clears all tables from the page.
+ */
+function clearTables(){
+    $("#tables").html("");
+}
+
+/**
+ * Adds (appends) a table holder to the page.
+ * 
+ * @param {type} unit
+ * @returns {undefined}
+ */
+function addTableUnit(unit){
+    $("#tables").append(unit);
+}
+
+/**
+ * Gets the users input and creates
+ * a set of tables from it.
+ */
+function populate(){
+    for(var i = 0; i <= getUserInput().files.length; i++){
+        file = getUserInput().files[i];
+        var reader = new FileReader();
+        
+        reader.onload = (function(theFile) {
+            return function(e) {
+                var ui = getUserInput();
+                addTableUnit(
+                        getTableUnit(
+                            theFile.name,
+                            getTable(
+                                    csvTo2DArray(
+                                        e.target.result,
+                                        ui.columnSeparator,
+                                        ui.useQuotes,
+                                        ui.maxRows
+                                    ),
+                            ui.firstRowHeaders, 
+                            ui.firstRowInlcude
+                            )
+                        )
+                    );
+                colorTables();
+            };
+        })(file);
+
+        reader.readAsText(file, getUserInput().encoding);
+    }
+}
+
+$("#go").click(function (){
+    if(getUserInput().files.length === 0){
+        alert("No files selected!");
+        return;
+    }
+    
+    clearTables();
+    $("#go").html("Refresh!");
+    populate();
+});
+
+/**
+ * Prevents users submitting the form
+ * with the enter key.
+ */
+$(document).on("keypress", "form", function(event) { 
+    return event.keyCode !== 13;
+});
+
+/**
+ * Prevents the controls from being
+ * stuck in collapsed mode.
+ */
+$(window).resize(function() {
+    if($(window).width() < SM_SCREEN_SIZE) {
+        showBasic();
+        showAdvanced();
+    }
 });
