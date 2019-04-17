@@ -179,6 +179,8 @@ function colorTables(){
 
 /* Table Generation */
 
+var tableCount = 1;
+
 /**
  * Creates a table holder with the 
  * given table in it.
@@ -188,9 +190,12 @@ function colorTables(){
  * @returns {String|getTableUnit.tableHolder}
  */
 function getTableUnit(title, tableHtml){
-    var tableHolder = "<div class=\"table-holder\"><p class=\"table-title\"><b>{@name}</b></p>{@table}</div>";
+    var id = "table-" + tableCount;
+    var downloadButton = "<button title=\"Download the edited table (The name is also editable).\" onClick=\"downloadTable(" + tableCount + ")\" class=\"btn btn-default\"><i class=\"material-icons\" id=\"advanced-controls-display\">save_alt</i></button>";
+    var tableHolder = "<div class=\"table-holder\" id=\"" + id + "\"><p class=\"table-title\"><b contenteditable>{@name}</b> " + downloadButton + " </p>{@table}</div>";
     tableHolder = tableHolder.replace("{@name}", title);
     tableHolder = tableHolder.replace("{@table}", tableHtml);
+    tableCount++;
     return tableHolder;
 }
 
@@ -198,6 +203,7 @@ function getTableUnit(title, tableHtml){
  * Clears all tables from the page.
  */
 function clearTables(){
+    tableCount = 1;
     $("#tables").html("");
 }
 
@@ -209,6 +215,90 @@ function clearTables(){
  */
 function addTableUnit(unit){
     $("#tables").append(unit);
+}
+
+/* Table downloading */
+
+/**
+ * Download the specified table to 
+ * the users computer.
+ * 
+ * @param {type} table table number
+ * @returns {undefined}
+ */
+function downloadTable(table){
+    var tableId = "table-" + table;
+    
+    var myTableArray = [];
+
+    $("#" + tableId + " > table tr").each(function() {
+        var arrayOfThisRow = [];
+        var tableData = $(this).find('th');
+        if (tableData.length > 0) {
+            tableData.each(function() { arrayOfThisRow.push($(this).text()); });
+            myTableArray.push(arrayOfThisRow);
+        }
+    });
+
+    $("#" + tableId + " > table tr").each(function() {
+        var arrayOfThisRow = [];
+        var tableData = $(this).find('td');
+        if (tableData.length > 0) {
+            tableData.each(function() { arrayOfThisRow.push($(this).text()); });
+            myTableArray.push(arrayOfThisRow);
+        }
+    });
+    
+    var csvArray = [];
+    var ta = myTableArray;
+    
+    var separator = getUserInput().columnSeparator;
+   
+    for(var i = 0; i < ta.length; i++){
+        for(var j = 0; j < ta[i].length; j++){
+            if(j === ta[i].length - 1)
+                csvArray.push("\"" + ta[i][j] + "\"");
+            else
+                csvArray.push("\"" + ta[i][j] + "\"" + separator);
+        }
+        csvArray.push("\n");
+    }
+    
+    var csvString = csvArray.join("");
+    
+    var fileName = $("#" + tableId + " > p > b").html();
+    
+    if(fileName === "" || fileName === " "){
+        fileName = "Project CSV Edited File.csv";
+    }
+    
+    if(!fileName.endsWith(".csv")){
+        fileName = fileName + ".csv";
+    }
+    
+    //alert(csvString);
+    download(fileName, csvString);
+}
+
+/**
+ * Creates and downloads a file to the users computer.
+ * 
+ * 
+ * @param {type} filename
+ * @param {type} text
+ * @returns {undefined}
+ */
+function download(filename, text) {
+  var element = document.createElement('a');
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+  element.setAttribute('download', filename);
+
+  element.style.display = 'none';
+  document.body.appendChild(element);
+
+  element.click();
+
+  document.body.removeChild(element);
 }
 
 /**
@@ -260,6 +350,8 @@ $("#go").click(function (){
 /**
  * Prevents users submitting the form
  * with the enter key.
+ * 
+ * @param {type} event description
  */
 $(document).on("keypress", "form", function(event) { 
     return event.keyCode !== 13;

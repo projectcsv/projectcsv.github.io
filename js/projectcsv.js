@@ -35,10 +35,11 @@ function test(){
  * in the table bold if true.
  * @param {type} dupeHeaders will duplicate the first row
  * in the table if true and useHeaders is true.
+ * @param {type} tableId HTML ID for the table.
  * @returns {String} the constructed html table as text.
  */
-function getTable(tableArray, useHeaders, dupeHeaders){
-    var tableOpen = "<table>";
+function getTable(tableArray, useHeaders, dupeHeaders, tableId){
+    var tableOpen = "<table contenteditable id=\"" + tableId + "\">";
     var tableClose = "</table>";
     
     var headerCell = "<th>{@val}</th>";
