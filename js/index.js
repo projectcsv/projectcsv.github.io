@@ -256,10 +256,17 @@ function downloadTable(table){
    
     for(var i = 0; i < ta.length; i++){
         for(var j = 0; j < ta[i].length; j++){
-            if(j === ta[i].length - 1)
-                csvArray.push("\"" + ta[i][j] + "\"");
-            else
-                csvArray.push("\"" + ta[i][j] + "\"" + separator);
+            if(ta[i][j].includes(getUserInput().columnSeparator)){
+                if(j === ta[i].length - 1)
+                    csvArray.push("\"" + ta[i][j] + "\"");
+                else
+                    csvArray.push("\"" + ta[i][j] + "\"" + separator);
+            } else {
+                if(j === ta[i].length - 1)
+                    csvArray.push(ta[i][j]);
+                else
+                    csvArray.push(ta[i][j] + separator);
+            }
         }
         csvArray.push("\n");
     }
