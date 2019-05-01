@@ -117,7 +117,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 }
 
 .tables {
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 }
 
 table {
@@ -141,4 +141,14 @@ table tr:nth-child(odd) {
 table th {
     background-color: #e1e1e1;
     color: black;
+}
+
+/* Download Section */
+
+#download-section {
+    box-shadow: 10px 10px 10px 10px;
+    background-color: #e5e5e5;
+    padding: 10px;
+    padding-top: 20px;
+    font-size: 18px;
 }
