@@ -152,3 +152,19 @@ table th {
     padding-top: 20px;
     font-size: 18px;
 }
+
+/* Github Section */
+
+#github-section {
+    box-shadow: 10px 10px 10px 10px;
+    background-color: #e9e9e9;
+    padding: 10px;
+    padding-top: 20px;
+    font-size: 18px;
+}
+
+/* Misc */
+
+.boxshadow {
+    box-shadow: 2px 2px 2px 2px;
+}
