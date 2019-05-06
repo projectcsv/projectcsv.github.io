@@ -143,9 +143,9 @@ table th {
     color: black;
 }
 
-/* Download Section */
+/* Sections */
 
-#download-section {
+.section {
     box-shadow: 10px 10px 10px 10px;
     background-color: #e5e5e5;
     padding: 10px;
@@ -153,14 +153,8 @@ table th {
     font-size: 18px;
 }
 
-/* Github Section */
-
-#github-section {
-    box-shadow: 10px 10px 10px 10px;
-    background-color: #e9e9e9;
-    padding: 10px;
-    padding-top: 20px;
-    font-size: 18px;
+.section-lightgrey {
+    background-color: #f9f9f9;
 }
 
 /* Misc */
