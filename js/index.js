@@ -191,7 +191,7 @@ var tableCount = 1;
  */
 function getTableUnit(title, tableHtml){
     var id = "table-" + tableCount;
-    var downloadButton = "<button title=\"Download the edited table (The name is also editable).\" onClick=\"downloadTable(" + tableCount + ")\" class=\"btn btn-default\"><i class=\"material-icons\" id=\"advanced-controls-display\">save_alt</i></button>";
+    var downloadButton = "<button title=\"Download the editable table.\" onClick=\"downloadTable(" + tableCount + ")\" class=\"btn btn-default\"><i class=\"material-icons\" id=\"advanced-controls-display\">save_alt</i></button>";
     var tableHolder = "<div class=\"table-holder\" id=\"" + id + "\"><p class=\"table-title\"><b contenteditable>{@name}</b> " + downloadButton + " </p>{@table}</div>";
     tableHolder = tableHolder.replace("{@name}", title);
     tableHolder = tableHolder.replace("{@table}", tableHtml);
