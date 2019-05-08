@@ -17,7 +17,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <html>
     <head>
-        <title>Project CSV - CSV Viewer & Editor for Web & Desktop</title>
+        <title>Online & Offline CSV File Viewer & Editor - Project CSV</title>
+        
+        <meta name="description" content="A simple, well styled, online CSV
+        file viewer and editor that also provides downloadable desktop software
+        for offline CSV file viewing and editing. All software is free and open
+        source (hosted on GitHub)."/>
         
         <!-- Common head tags -->
         <meta charset="UTF-8">
@@ -142,7 +147,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
             <!--                                Tables                      -->
             <div class="tables text-center" id="tables">
                 <div class="text-center" id="instructions">
-                    <b>Instructions:</b>
+                    <h1 style="font-size: 32px;"><b>How to View and Edit CSV Files:</b></h1>
                     <div class="text-left" id="instructions-list">
                         <ol>
                             <li>Select the <code>.csv</code> file(s) you want to open.</li>
@@ -151,7 +156,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                             <li>Generated tables for the selected <code>.csv</code>
                             files will appear here.</li>
                             <li>The generated tables can then be edited
-                            (the name included) and downloaded to your computer
+                            (the name included) by clicking on the text you want
+                            to change.</li>
+                            <li>The edited table can then be downloaded to your
+                                computer
                             by pressing <span class="btn btn-default">
                             <i class="material-icons">save_alt</i></span>.</li>
                         </ol>
@@ -160,6 +168,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                             new <code>.csv</code> files, press
                             <span class="btn btn-primary">Refresh</span> with
                             the new settings or files.</li>
+                            <li style="color: red;">Remember: Refreshing the page
+                            will reset ANY changes to ALL tables</li>
                         </ul>
                     </div>
                 </div>
@@ -182,10 +192,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                         <br/>
                         In addition to the web page, Project CSV offers a native
                         desktop application, released under the same open source
-                        licsense, for viewing and editing <code>.csv</code>
+                        licsense, for offline viewing and editing of <code>.csv</code>
                         files on Windows.
                         <br/><br/>
-                        <a class="btn btn-primary" style="width: 75%; background-color: darkgray; border-color: black">Download</a>
+                        <a class="btn btn-primary" 
+                        style="width: 75%; background-color: darkgray; border-color: black"
+                        title="Link to download the Project CSV Desktop software.">Download</a>
                         <br/><br/>
                         <p style="color: red">The Project CSV Desktop application
                         is still in development. No downloads are available yet.</p>
@@ -288,14 +300,21 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
             <br/><br/>
             <p style="padding-left: 20%; padding-right: 20%;">
                 Project CSV is a duel set of free, open source tools, released
-                under the <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">
-                GNU General Public License v3</a>. The first of these tools is this
+                under the <a href="https://www.gnu.org/licenses/gpl-3.0.en.html"
+                title="The license Project CSV is licensed under.">
+                GNU General Public License v3</a> that allow you to open and edit
+                <code>.csv</code> files both online and offline, in your browser
+                and on your desktop. The first of these tools is this
                 webpage (projectcsv.github.io) - an online CSV viewer and editor
                 as well the official website for the project as a whole. The second
                 is a native CSV viewer and editor for Windows (Project CSV Desktop)
                 for offline use.
             </p>
-            
+            <a style="font-size: 18px;"
+               href="https://en.wikipedia.org/wiki/Comma-separated_values"
+               title="A comprehensive description of CSV and CSV files by Wikipedia.">
+                What is CSV?
+            </a>
         </div>
         
         <!-- Footer -->
